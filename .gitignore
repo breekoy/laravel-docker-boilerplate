@@ -1,0 +1,4 @@
+/mysql/*
+/src/*
+!mysql/.gitkeep 
+!src/.gitkeep
