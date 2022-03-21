@@ -1,6 +1,6 @@
 FROM php:7.3-fpm-alpine AS php_base
 
-RUN apk add --update libpng-dev lipzip-dev htop
+RUN apk add --update libpng-dev libzip-dev htop
 
 RUN docker-php-ext-install pdo pdo_mysql gd zip pcntl
 
