@@ -8,6 +8,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer self-update 1.10.20
 
+FROM php_base AS php_cron
+
+COPY crontab /etc/crontabs/root
+
+CMD ["crond", "-f"]
+
 FROM php_base AS php_supervisor
 
 RUN apk add --update --no-cache supervisor

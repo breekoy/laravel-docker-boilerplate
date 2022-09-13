@@ -48,6 +48,18 @@ services:
       SERVICE_NAME: mysql
     networks:
       - laravel
+
+  cron:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+      target: php_cron
+    container_name: cron
+    restart: unless-stopped
+    volumes:
+      - ./sites:/var/www/html
+    networks:
+      - laravel
   
   supervisor:
     build:
